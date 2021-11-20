@@ -1,0 +1,17 @@
+body {
+	text-align: center;
+}
+
+.container {
+	margin: 70px;
+}
+
+h1 {
+	font-size: 50px;
+}
+
+input {
+	width: 200px;
+	padding: 10px;
+	font-size: 20px;
+}
