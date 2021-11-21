@@ -14,10 +14,20 @@ input {
 	font-size: 20px;
 }
 
+.error-msg {
+	font-size: 18px;
+	font-weight: bold;
+	color: red;
+	padding: 10px;
+}
+
+/* ----------- */
+
 .container {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
-	margin: 40px 80px;
+	margin: 30px 80px;
 }
 
 /* weather info */
