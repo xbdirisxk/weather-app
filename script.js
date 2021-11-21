@@ -12,15 +12,20 @@ function getWeather(city) {
 			return response.json();
 		})
 		.then((response) => {
+			console.log(response);
 			let kelvin = response['main']['temp'];
 			let feelsLike = response['main']['feels_like'];
 
 			let celcius = kelvin - 273.15;
-			let fahrenheit = ((kelvin - 273.15) * 9) / 5 + 32;
 
-			let rain, humidity, wind;
+			// Math.trunc(celcius) + '॰C <br>';
 
-			display.innerHTML = Math.trunc(celcius) + '॰C <br>';
-			display.innerHTML += Math.trunc(fahrenheit) + '॰F <br>';
+			//let fahrenheit = ((kelvin - 273.15) * 9) / 5 + 32;
+			// Math.trunc(fahrenheit) + '॰F <br>';
+			let currentTime, rain, humidity, wind;
+		})
+		.catch((error) => {
+			console.log(error);
+			display.textContent = "sorry, we can't find " + city;
 		});
 }

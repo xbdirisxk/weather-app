@@ -2,6 +2,7 @@
 <html lang="en">
 	<head>
 		<link rel="stylesheet" href="style.css" />
+		<link rel="icon" href="weather-icon.svg" />
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,9 +10,22 @@
 	</head>
 	<body>
 		<h1>Weather app</h1>
+		<input type="text" placeholder="Enter City Name" />
 		<div class="container">
-			<input type="text" placeholder="Enter City Name" />
-			<h2></h2>
+			<div class="weather-info">
+				<div class="city-name">Hargeisa, SO</div>
+				<div class="temp">
+					<img src="weather-icon.svg" width="30px" height="30px" /> 20॰C
+				</div>
+				<div class="feels-like">feels like 22॰C</div>
+
+				<div class="rain">rain: 02%</div>
+				<div class="wind">wind: 109</div>
+				<div class="visibilty">visibilty: 100km</div>
+			</div>
+			<div class="location-img">
+				<img src="location.jpg" alt="" />
+			</div>
 		</div>
 
 		<script src="script.js"></script>

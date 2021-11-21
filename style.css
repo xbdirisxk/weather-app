@@ -1,17 +1,56 @@
 body {
 	text-align: center;
+	font-family: monospace;
+	font-size: 20px;
 }
-
-.container {
-	margin: 70px;
-}
-
 h1 {
 	font-size: 50px;
+	margin-top: 10px;
 }
 
 input {
 	width: 200px;
 	padding: 10px;
 	font-size: 20px;
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	margin: 40px 80px;
+}
+
+/* weather info */
+
+.weather-info {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	margin: 10px;
+	font-size: 20px;
+	text-align: left;
+	font-size: 25px;
+}
+
+.city-name {
+	font-size: 40px;
+	font-weight: 600;
+}
+.temp {
+	font-size: 30px;
+	font-weight: bold;
+	width: 250px;
+	text-align: right;
+}
+
+.feels-like {
+	font-family: Courier, monospace;
+	font-size: 25px;
+}
+
+/* city location */
+
+.location-img > img {
+	width: 600px;
+	height: 300px;
 }
