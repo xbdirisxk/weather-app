@@ -1,8 +1,13 @@
 let city = document.querySelector('input');
+let errorMsg = document.querySelector('.error-msg');
 
 // DOM
 const displayCity = document.querySelector('.weather-info > .city-name');
-const displayTemp = document.querySelector('.weather-info > .temp');
+const displayIcon = document.querySelector('.weather-info > .temp > img');
+const displayTemp = document.querySelector('.weather-info > .temp > span');
+
+// const displayMap = document.querySelector('#map');
+
 const displayFeelsLike = document.querySelector('.weather-info > .feels-like');
 const displayCloud = document.querySelector('.weather-info > .cloud');
 const displayHumidity = document.querySelector('.weather-info > .humidity');
@@ -18,12 +23,16 @@ function getWeather(city) {
 			return response.json();
 		})
 		.then((response) => {
+			errorMsg.textContent = '';
 			console.log(response);
+
 			let currentTime;
 			let city = response['name'];
 			let country = response['sys']['country'];
 			let kelvin = response['main']['temp']; // temperature in kelvin
 			let feelsLike = response['main']['feels_like'];
+			let description = response['weather'][0]['description'];
+			let icon = response['weather'][0]['icon'];
 			let humidity = response['main']['humidity'];
 			let cloud = response['clouds']['all'];
 			let visibility = response['visibility'];
@@ -40,14 +49,20 @@ function getWeather(city) {
 
 			displayTemp.textContent = Math.trunc(celcius) + '॰C';
 
-			displayFeelsLike.textContent = 'Feels Like ' + feelsLike; // convert to celcius
+			displayIcon.setAttribute(
+				'src',
+				`http://openweathermap.org/img/wn/${icon}@2x.png`
+			);
+			displayFeelsLike.textContent =
+				'Feels Like ' + feelsLike + ', ' + description; // convert to celcius
 			displayCloud.textContent = 'Cloudiness: ' + cloud + '%';
 			displayHumidity.textContent = 'Humidity: ' + humidity + '%';
 			displayVisibility.textContent = 'Visibility: ' + visibility + 'KM';
 		})
 		.catch((error) => {
 			console.log(error);
-			let errorMsg = document.querySelector('.error-msg');
 			errorMsg.textContent = "sorry, we can't find " + city;
 		});
 }
+
+// getWeather('hargeisa');
