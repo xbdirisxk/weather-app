@@ -40,29 +40,21 @@ function getWeather(city) {
 			let lon = response['coord']['lon'];
 			let lat = response['coord']['lat'];
 
-			// convert temperature to celcius(and fehrenheit)
+			// convert kelvin to celcius
 			let celcius = kelvin - 273.15;
-			let fahrenheit = ((kelvin - 273.15) * 9) / 5 + 32;
-			fahrenheit = Math.trunc(fahrenheit) + '॰F';
+			feelsLike = feelsLike - 273.15;
 
 			// visibility Meter to KM
 			visibility = visibility / 1000;
 
-			displayCity.textContent = city + ', ' + country;
+			let place = { city, country };
+			let temp = { celcius, feelsLike, description, icon };
 
-			displayTemp.textContent = Math.trunc(celcius) + '॰C';
+			// display weather info
+			displayDom(place, temp, cloud, humidity, visibility);
 
-			displayIcon.setAttribute(
-				'src',
-				`http://openweathermap.org/img/wn/${icon}@2x.png`
-			);
 			// dispay map
 			getMap(lon, lat);
-			displayFeelsLike.textContent =
-				'Feels Like ' + feelsLike + ', ' + description; // convert to celcius
-			displayCloud.textContent = 'Cloudiness: ' + cloud + '%';
-			displayHumidity.textContent = 'Humidity: ' + humidity + '%';
-			displayVisibility.textContent = 'Visibility: ' + visibility + 'KM';
 		})
 		.catch((error) => {
 			console.log(error);
@@ -79,6 +71,23 @@ function getMap(lon, lat) {
 		center: [lon, lat], // starting position [lng, lat]
 		zoom: 11, // starting zoom
 	});
+}
+
+function displayDom(place, temp, cloud, humidity, visibility) {
+	displayCity.textContent = place.city + ', ' + place.country;
+
+	displayTemp.textContent = Math.trunc(temp.celcius) + '॰C';
+
+	displayIcon.setAttribute(
+		'src',
+		`http://openweathermap.org/img/wn/${temp.icon}@2x.png`
+	);
+
+	displayFeelsLike.textContent =
+		'Feels Like ' + Math.trunc(temp.feelsLike) + '॰C' + ', ' + temp.description;
+	displayCloud.textContent = 'Cloudiness: ' + cloud + '%';
+	displayHumidity.textContent = 'Humidity: ' + humidity + '%';
+	displayVisibility.textContent = 'Visibility: ' + visibility + 'KM';
 }
 
 // getWeather('hargeisa');
