@@ -37,6 +37,9 @@ function getWeather(city) {
 			let cloud = response['clouds']['all'];
 			let visibility = response['visibility'];
 
+			let lon = response['coord']['lon'];
+			let lat = response['coord']['lat'];
+
 			// convert temperature to celcius(and fehrenheit)
 			let celcius = kelvin - 273.15;
 			let fahrenheit = ((kelvin - 273.15) * 9) / 5 + 32;
@@ -53,6 +56,8 @@ function getWeather(city) {
 				'src',
 				`http://openweathermap.org/img/wn/${icon}@2x.png`
 			);
+			// dispay map
+			getMap(lon, lat);
 			displayFeelsLike.textContent =
 				'Feels Like ' + feelsLike + ', ' + description; // convert to celcius
 			displayCloud.textContent = 'Cloudiness: ' + cloud + '%';
@@ -63,6 +68,17 @@ function getWeather(city) {
 			console.log(error);
 			errorMsg.textContent = "sorry, we can't find " + city;
 		});
+}
+
+function getMap(lon, lat) {
+	mapboxgl.accessToken =
+		'pk.eyJ1IjoieGJkaXJpc3hrIiwiYSI6ImNrd2JsaGh6MjBia28zMW4yMnFzMXA4YmQifQ.-XkNybP6MygNea6Db-yqqg';
+	const map = new mapboxgl.Map({
+		container: 'map', // container ID
+		style: 'mapbox://styles/mapbox/streets-v11', // style URL
+		center: [lon, lat], // starting position [lng, lat]
+		zoom: 11, // starting zoom
+	});
 }
 
 // getWeather('hargeisa');

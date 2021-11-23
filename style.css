@@ -24,15 +24,19 @@ input {
 /* ----------- */
 
 .container {
+	/* background-color: hsl(0, 100%, 98%); */
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	margin: 30px 80px;
+	padding: 10px;
+	border-radius: 5px;
 }
 
 /* weather info */
 
 .weather-info {
+	max-width: 500px;
 	display: flex;
 	flex-direction: column;
 	gap: 3px;
@@ -45,17 +49,22 @@ input {
 .city-name {
 	font-size: 40px;
 	font-weight: 600;
+	color: hsl(0, 100%, 25%);
+}
+.temp > img {
+	width: 50px;
+	height: 50px;
 }
 .temp {
 	font-size: 30px;
 	font-weight: bold;
-	width: 250px;
+	max-width: 290px;
 	text-align: right;
 }
 
 .feels-like {
 	font-family: Courier, monospace;
-	font-size: 25px;
+	font-size: 20px;
 }
 
 /* city location */
@@ -63,4 +72,10 @@ input {
 .location-img > img {
 	width: 600px;
 	height: 300px;
+}
+
+#map {
+	height: 300px;
+	width: 600px;
+	border: 1px solid rgb(161, 160, 160);
 }

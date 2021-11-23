@@ -2,11 +2,16 @@
 <html lang="en">
 	<head>
 		<link rel="stylesheet" href="style.css" />
-		<link rel="icon" href="weather-icon.svg" />
+		<link rel="icon" href="icon.svg" />
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Weather app</title>
+		<script src="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js"></script>
+		<link
+			href="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<h1>Weather app</h1>
@@ -26,8 +31,9 @@
 				<div class="visibility">Visibility: 100km</div>
 			</div>
 			<div class="location-img">
-				<img src="location.jpg" alt="" />
+				<!-- <img src="location.jpg" alt="" /> -->
 				<!-- <div id="map"></div> -->
+				<div id="map"></div>
 			</div>
 		</div>
 
