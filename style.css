@@ -1,7 +1,16 @@
 body {
 	text-align: center;
-	font-family: monospace;
+	font-family: sans-serif;
 	font-size: 20px;
+	background-image: linear-gradient(
+		to top,
+		hsl(0, 0%, 99%),
+		hsl(300, 33%, 98%),
+		hsl(312, 45%, 98%),
+		hsl(330, 83%, 97%),
+		hsl(347, 90%, 97%)
+	);
+	height: 100vh;
 }
 h1 {
 	font-size: 50px;
@@ -12,6 +21,7 @@ input {
 	width: 200px;
 	padding: 10px;
 	font-size: 20px;
+	font-weight: bold;
 }
 
 .error-msg {
@@ -24,7 +34,8 @@ input {
 /* ----------- */
 
 .container {
-	/* background-color: hsl(0, 100%, 98%); */
+	background-color: hsl(0, 100%, 97%);
+	border: 1px solid hsl(0, 100%, 95%);
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -46,11 +57,16 @@ input {
 	font-size: 25px;
 }
 
+/* .time {
+	font-size: 14px;
+} */
+
 .city-name {
 	font-size: 40px;
 	font-weight: 600;
 	color: hsl(0, 100%, 25%);
 }
+
 .temp > img {
 	width: 50px;
 	height: 50px;
@@ -65,17 +81,24 @@ input {
 .feels-like {
 	font-family: Courier, monospace;
 	font-size: 20px;
+	font-weight: bold;
+}
+
+.cloud {
+	font-size: 24px;
+}
+.humidity {
+	font-size: 24px;
+}
+.visibility {
+	font-size: 24px;
 }
 
 /* city location */
-
-.location-img > img {
-	width: 600px;
-	height: 300px;
-}
 
 #map {
 	height: 300px;
 	width: 600px;
 	border: 1px solid rgb(161, 160, 160);
+	border-radius: 5px;
 }

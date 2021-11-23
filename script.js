@@ -90,4 +90,4 @@ function displayDom(place, temp, cloud, humidity, visibility) {
 	displayVisibility.textContent = 'Visibility: ' + visibility + 'KM';
 }
 
-// getWeather('hargeisa');
+getWeather('hargeisa');
