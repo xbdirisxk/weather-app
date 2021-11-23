@@ -80,7 +80,7 @@ function displayDom(place, temp, cloud, humidity, visibility) {
 
 	displayIcon.setAttribute(
 		'src',
-		`http://openweathermap.org/img/wn/${temp.icon}@2x.png`
+		`http://openweathermap.org/img/wn/${temp.icon}.png`
 	);
 
 	displayFeelsLike.textContent =
