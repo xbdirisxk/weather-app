@@ -1,12 +1,12 @@
 let city = document.querySelector('input');
 let errorMsg = document.querySelector('.error-msg');
 
-// DOM
+let loader = document.querySelector('.loader');
+
+// display dom
 const displayCity = document.querySelector('.weather-info > .city-name');
 const displayIcon = document.querySelector('.weather-info > .temp > img');
 const displayTemp = document.querySelector('.weather-info > .temp > span');
-
-// const displayMap = document.querySelector('#map');
 
 const displayFeelsLike = document.querySelector('.weather-info > .feels-like');
 const displayCloud = document.querySelector('.weather-info > .cloud');
@@ -17,6 +17,7 @@ city.addEventListener('keyup', (event) => {
 	if (event.key === 'Enter') getWeather(city.value);
 });
 function getWeather(city) {
+	loader.classList.remove('hide');
 	let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=cd6097fa38be54677f2d2cfeee13a869`;
 	fetch(apiUrl, { mode: 'cors' })
 		.then((response) => {
@@ -55,6 +56,7 @@ function getWeather(city) {
 
 			// dispay map
 			getMap(lon, lat);
+			loader.classList.add('hide');
 		})
 		.catch((error) => {
 			console.log(error);
@@ -90,4 +92,4 @@ function displayDom(place, temp, cloud, humidity, visibility) {
 	displayVisibility.textContent = 'Visibility: ' + visibility + 'KM';
 }
 
-getWeather('hargeisa');
+getWeather('erigavo');

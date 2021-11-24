@@ -33,14 +33,14 @@ input {
 /* ----------- */
 
 .container {
-	background-color: hsl(0, 100%, 97%);
+	background-color: hsl(0, 100%, 94%);
 	border: 1px solid hsl(0, 100%, 95%);
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	margin: 30px 80px;
 	padding: 10px;
-	border-radius: 5px;
+	border-radius: 9px;
 }
 
 /* weather info */
@@ -67,8 +67,9 @@ input {
 }
 
 .temp > img {
-	width: 40px;
-	height: 40px;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
 }
 .temp {
 	font-size: 30px;
@@ -100,4 +101,30 @@ input {
 	width: 600px;
 	border: 1px solid rgb(161, 160, 160);
 	border-radius: 5px;
+}
+
+/* loading  */
+
+.loader {
+	border: 5px solid #f3f3f3; /* Light grey */
+	border-top: 5px solid #3a0101; /* Blue */
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	animation: spin 1s linear infinite;
+	display: inline-block;
+	margin-top: 10px;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.hide {
+	display: none;
 }
