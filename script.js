@@ -61,6 +61,7 @@ function getWeather(city) {
 		.catch((error) => {
 			console.log(error);
 			errorMsg.textContent = "sorry, we can't find " + city;
+			loader.classList.add('hide');
 		});
 }
 

@@ -103,6 +103,19 @@ input {
 	border-radius: 5px;
 }
 
+@media only screen and (max-width: 785px) {
+	.container {
+		display: flex;
+		flex-direction: column;
+		width: 350px;
+	}
+
+	#map {
+		height: 300px;
+		width: 300px;
+	}
+}
+
 /* loading  */
 
 .loader {
