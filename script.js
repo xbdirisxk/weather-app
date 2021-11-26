@@ -27,7 +27,6 @@ function getWeather(city) {
 			errorMsg.textContent = '';
 			console.log(response);
 
-			let currentTime;
 			let city = response['name'];
 			let country = response['sys']['country'];
 			let kelvin = response['main']['temp']; // temperature in kelvin
