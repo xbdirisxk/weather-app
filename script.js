@@ -54,12 +54,17 @@ function getWeather(city) {
 			displayDom(place, temp, cloud, humidity, visibility);
 
 			// dispay map
-			getMap(lon, lat);
+			/* getMap(lon, lat); */
 			loader.classList.add('hide');
 		})
 		.catch((error) => {
-			console.log(error);
-			errorMsg.textContent = "sorry, we can't find " + city;
+			console.log(error.message);
+			///NetworkError/
+			if (error.message.includes('NetworkError'))
+				errorMsg.textContent = 'please, connect to the internet';
+			else if (error.message.includes('response.sys is undefined'))
+				errorMsg.textContent = 'please fill the field';
+			else errorMsg.textContent = "sorry, we can't find " + city;
 			loader.classList.add('hide');
 		});
 }
@@ -93,3 +98,7 @@ function displayDom(place, temp, cloud, humidity, visibility) {
 }
 
 getWeather('erigavo');
+
+// city date
+
+let date = Date().slice(0, 21);
