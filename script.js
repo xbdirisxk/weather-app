@@ -14,7 +14,10 @@ const displayHumidity = document.querySelector('.weather-info > .humidity');
 const displayVisibility = document.querySelector('.weather-info > .visibility');
 
 city.addEventListener('keyup', (event) => {
-	if (event.key === 'Enter') getWeather(city.value);
+	if (event.key === 'Enter') {
+		if (city.value == '') errorMsg.textContent = 'please fill this field';
+		else getWeather(city.value);
+	}
 });
 function getWeather(city) {
 	loader.classList.remove('hide');
@@ -54,17 +57,16 @@ function getWeather(city) {
 			displayDom(place, temp, cloud, humidity, visibility);
 
 			// dispay map
-			/* getMap(lon, lat); */
+			getMap(lon, lat);
 			loader.classList.add('hide');
 		})
 		.catch((error) => {
 			console.log(error.message);
-			///NetworkError/
+
 			if (error.message.includes('NetworkError'))
-				errorMsg.textContent = 'please, connect to the internet';
-			else if (error.message.includes('response.sys is undefined'))
-				errorMsg.textContent = 'please fill the field';
+				errorMsg.textContent = 'please, connect to the network';
 			else errorMsg.textContent = "sorry, we can't find " + city;
+
 			loader.classList.add('hide');
 		});
 }
@@ -101,4 +103,4 @@ getWeather('erigavo');
 
 // city date
 
-let date = Date().slice(0, 21);
+//let date = Date().slice(0, 21);
