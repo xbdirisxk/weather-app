@@ -57,9 +57,9 @@ input {
 }
 
 .time {
-	font-size: 10px;
+	font-size: 14px;
 	font-weight: bold;
-	font-variant: small-caps;
+	color: hsl(0, 100%, 40%);
 }
 
 .city-name {
