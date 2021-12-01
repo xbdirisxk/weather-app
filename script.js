@@ -45,22 +45,34 @@ function getWeather(city) {
 			let lon = response['coord']['lon'];
 			let lat = response['coord']['lat'];
 
-			// convert kelvin to celcius
-			let celcius = kelvin - 273.15;
+			// convert kelvin to celsius
+			let celsius = kelvin - 273.15;
 			feelsLike = feelsLike - 273.15;
+
+			// celsius to fahrenheit
+			let fahrenheit = (celsius * 9) / 5 + 32;
+			let feelsLikeInFahrenheit = (feelsLike * 9) / 5 + 32;
 
 			// visibility Meter to KM
 			visibility = visibility / 1000;
 
 			let place = { city, country };
-			let temp = { celcius, feelsLike, description, icon };
+			let temp = {
+				celsius,
+				fahrenheit,
+				feelsLike,
+				feelsLikeInFahrenheit,
+				description,
+				icon,
+			};
 
 			// display weather info
 			getTime(timeZone);
-			displayDom(place, temp, cloud, humidity, visibility);
+			displayWeather(place, temp, cloud, humidity, visibility);
 
 			// dispay map
 			getMap(lon, lat);
+
 			loader.classList.add('hide');
 		})
 		.catch((error) => {
@@ -76,10 +88,10 @@ function getWeather(city) {
 
 /* display function  */
 
-function displayDom(place, temp, cloud, humidity, visibility) {
+function displayWeather(place, temp, cloud, humidity, visibility) {
 	displayCity.textContent = place.city + ', ' + place.country;
 
-	displayTemp.textContent = Math.trunc(temp.celcius) + '॰C';
+	displayTemp.textContent = Math.trunc(temp.celsius) + '॰C';
 
 	displayIcon.setAttribute(
 		'src',
@@ -93,9 +105,34 @@ function displayDom(place, temp, cloud, humidity, visibility) {
 	displayVisibility.textContent = 'Visibility: ' + visibility + 'KM';
 }
 
-getWeather('erigavo');
+// convert celsius <--> fahrenheit
+let convert = false;
+function convertDegrees(temp) {
+	console.log('yeaah, function #2 is working, ' + convert);
+	convert = !convert;
 
-/* get city time */
+	if (convert) {
+		displayTemp.textContent = Math.trunc(temp.fahrenheit) + '॰F';
+
+		displayFeelsLike.textContent =
+			'Feels Like ' +
+			Math.trunc(temp.feelsLikeInFahrenheit) +
+			'॰F' +
+			', ' +
+			temp.description;
+	} else {
+		displayTemp.textContent = Math.trunc(temp.celsius) + '॰C';
+
+		displayFeelsLike.textContent =
+			'Feels Like ' +
+			Math.trunc(temp.feelsLike) +
+			'॰C' +
+			', ' +
+			temp.description;
+	}
+}
+
+/* get Date */
 
 let daysInWords = {
 	0: 'Sun',
@@ -147,3 +184,5 @@ function getMap(lon, lat) {
 		zoom: 11, // starting zoom
 	});
 }
+
+getWeather('erigavo');

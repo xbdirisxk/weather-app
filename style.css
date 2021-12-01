@@ -79,6 +79,9 @@ input {
 	max-width: 290px;
 	text-align: right;
 }
+.temp > span:hover {
+	cursor: pointer;
+}
 
 .feels-like {
 	font-family: Courier, monospace;
