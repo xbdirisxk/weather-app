@@ -79,7 +79,7 @@ function getWeather(city) {
 			console.log(error.message);
 
 			if (error.message.includes('NetworkError'))
-				errorMsg.textContent = 'please, connect to the network';
+				errorMsg.textContent = 'please connect to the network';
 			else errorMsg.textContent = "sorry, we can't find " + city;
 
 			loader.classList.add('hide');
@@ -103,33 +103,6 @@ function displayWeather(place, temp, cloud, humidity, visibility) {
 	displayCloud.textContent = 'Cloudiness: ' + cloud + '%';
 	displayHumidity.textContent = 'Humidity: ' + humidity + '%';
 	displayVisibility.textContent = 'Visibility: ' + visibility + 'KM';
-}
-
-// convert celsius <--> fahrenheit
-let convert = false;
-function convertDegrees(temp) {
-	console.log('yeaah, function #2 is working, ' + convert);
-	convert = !convert;
-
-	if (convert) {
-		displayTemp.textContent = Math.trunc(temp.fahrenheit) + '॰F';
-
-		displayFeelsLike.textContent =
-			'Feels Like ' +
-			Math.trunc(temp.feelsLikeInFahrenheit) +
-			'॰F' +
-			', ' +
-			temp.description;
-	} else {
-		displayTemp.textContent = Math.trunc(temp.celsius) + '॰C';
-
-		displayFeelsLike.textContent =
-			'Feels Like ' +
-			Math.trunc(temp.feelsLike) +
-			'॰C' +
-			', ' +
-			temp.description;
-	}
 }
 
 /* get Date */
@@ -167,6 +140,9 @@ function getTime(timeZone) {
 	let month = time.getUTCMonth();
 	let hours = time.getUTCHours();
 	let minutes = time.getUTCMinutes();
+
+	hours = hours < 10 ? '0' + hours : hours;
+	minutes = minutes < 10 ? '0' + minutes : minutes;
 
 	time = `${daysInWords[day]} ${date}-${monthsInWords[month]} ${hours}:${minutes}`;
 	displayTime.textContent = time;
