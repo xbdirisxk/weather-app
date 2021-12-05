@@ -29,12 +29,12 @@ function getWeather(city) {
 		})
 		.then((response) => {
 			errorMsg.textContent = '';
-			console.log(response);
+			console.log(response); // just for checking json output
 
 			let city = response['name'];
 			let timeZone = response['timezone'];
 			let country = response['sys']['country'];
-			let kelvin = response['main']['temp']; // temperature in kelvin
+			let kelvin = response['main']['temp']; // temperature in kelvin unit
 			let feelsLike = response['main']['feels_like'];
 			let description = response['weather'][0]['description'];
 			let icon = response['weather'][0]['icon'];
@@ -49,19 +49,13 @@ function getWeather(city) {
 			let celsius = kelvin - 273.15;
 			feelsLike = feelsLike - 273.15;
 
-			// celsius to fahrenheit
-			let fahrenheit = (celsius * 9) / 5 + 32;
-			let feelsLikeInFahrenheit = (feelsLike * 9) / 5 + 32;
-
 			// visibility Meter to KM
 			visibility = visibility / 1000;
 
 			let place = { city, country };
 			let temp = {
 				celsius,
-				fahrenheit,
 				feelsLike,
-				feelsLikeInFahrenheit,
 				description,
 				icon,
 			};

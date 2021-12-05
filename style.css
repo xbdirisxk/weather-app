@@ -79,9 +79,6 @@ input {
 	max-width: 290px;
 	text-align: right;
 }
-.temp > span:hover {
-	cursor: pointer;
-}
 
 .feels-like {
 	font-family: Courier, monospace;
@@ -89,13 +86,9 @@ input {
 	font-weight: bold;
 }
 
-.cloud {
-	font-size: 24px;
-}
+.cloud,
+.visibility,
 .humidity {
-	font-size: 24px;
-}
-.visibility {
 	font-size: 24px;
 }
 
