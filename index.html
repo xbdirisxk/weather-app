@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<link rel="stylesheet" href="style.css" />
-		<link rel="icon" href="icon.svg" />
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Weather app</title>
-		<script src="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js"></script>
-		<link
-			href="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css"
-			rel="stylesheet"
-		/>
-	</head>
-	<body>
-		<h1>Weather app</h1>
-		<input type="text" placeholder="Enter City Name" /> <br />
-		<span class="error-msg"></span>
-		<div class="loader hide"></div>
-		<div class="container">
-			<div class="weather-info">
-				<div class="city-name">London, GB</div>
-				<div class="time">Sun 05-Dec 18:45</div>
-				<div class="temp">
-					<img src="icon.svg" />
-					<span>7॰C</span>
-				</div>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" href="icon.svg" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather app</title>
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js"></script>
+        <link
+            href="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <h1>Weather app</h1>
+        <input type="text" placeholder="Enter City Name" /> <br />
+        <span class="error-msg"></span>
+        <div class="loader hide"></div>
+        <div class="container">
+            <div class="weather-info">
+                <div class="city-name">London, GB</div>
+                <div class="time">Sun 05-Dec 18:45</div>
+                <div class="temp">
+                    <img src="icon.svg" />
+                    <span>7॰C</span>
+                </div>
 
-				<div class="feels-like">Feels Like 22॰C, clear sky</div>
+                <div class="feels-like">Feels Like 22॰C, clear sky</div>
 
-				<div class="cloud">Cloundiness: 77%</div>
-				<div class="humidity">Humidity: 89%</div>
-				<div class="visibility">Visibility: 10km</div>
-			</div>
-			<div class="location">
-				<div id="map"></div>
-			</div>
-		</div>
+                <div class="cloud">Cloundiness: 77%</div>
+                <div class="humidity">Humidity: 89%</div>
+                <div class="visibility">Visibility: 10km</div>
+            </div>
+            <div class="location">
+                <div id="map"></div>
+            </div>
+        </div>
 
-		<script src="script.js"></script>
-	</body>
+        <script src="script.js"></script>
+    </body>
 </html>

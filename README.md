@@ -5,4 +5,4 @@
 ---
 
 > _this app is using **[OpenWeather](https://openweathermap.org/)** API
-> and the map is from [Mapbox](https://www.mapbox.com/)_
+> and [mapbox](https://www.mapbox.com/)_ Map.
